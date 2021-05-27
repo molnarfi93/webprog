@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <div class="header">Signup</div>
+    </tr>
+    <tr>
+        <div class="panel">
+			<form [formGroup]="userForm" (ngSubmit)="signup()">
+				Email: <input type="text" formControlName="email"><br />
+				<div class="error" *ngIf="userForm.email.errors?.required">E-mail is required!</div>
+				<div class="error" *ngIf="userForm.email.errors?.pattern">It's not an e-mail account!</div>
+				<br />
+				Password: <input type="text" formControlName="passw"><br />
+				<div class="error" *ngIf="userForm.passw.errors?.required">Password is required!</div>
+				<div class="error" *ngIf="userForm.passw.errors?.pattern">Password must be at least 8 characters!</div>
+				<br />
+				<br />
+				<br />
+			</form>
+			<button type="submit" [disabled]="!userForm.valid" class="ok">Sign up!</button><br />
+        </div>
+    </tr>
+</table>

@@ -1,0 +1,32 @@
+<table>
+    <tr>
+        <div class="header">Edit DVD</div>
+    </tr>
+    <tr>
+        <div class="panel">
+			<form [formGroup]="dvdForm" (ngSubmit)="editDVD()">
+				Title: <input type="text" formControlName="title"><br />
+				<div class="error" *ngIf="dvdForm.title.errors?.required">Title is required!</div>
+				<br />
+				Year: <input type="number" min="1900" max="2021" formControlName="year"><br />
+				<div class="error" *ngIf="dvdForm.year.errors?.required">Year is required!</div>
+				<div class="error" *ngIf="dvdForm.year.errors?.pattern">Year must be between 1900 and 2021!</div>
+				<br />
+				Price: <input type="number" min="900" max="10000" formControlName="price"><br />
+				<div class="error" *ngIf="dvdForm.price.errors?.required">Price is required!</div>
+				<div class="error" *ngIf="dvdForm.price.errors?.pattern">Price must be between 900 and 10000!</div>
+				<br />
+				Pieces: <input type="number" min="0" max="1000" formControlName="pieces"><br />
+				<div class="error" *ngIf="dvdForm.pieces.errors?.required">Pieces is required!</div>
+				<div class="error" *ngIf="dvdForm.pieces.errors?.pattern">Pieces must be between 0 and 1000!</div>
+				<br />
+				<br />
+			</form>
+			<button type="submit" [disabled]="!dvdForm.valid" class="ok">Add it!</button><br />
+			<br />
+			<br />
+			<br />
+			<button (click)="loadAvailableDVDs()">Go back</button>
+        </div>
+    </tr>
+</table>

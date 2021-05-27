@@ -1,0 +1,28 @@
+<table>
+    <tr>
+        <div class="header">Available DVDs</div>
+    </tr>
+    <tr> 
+        <div class="panel">
+				<td style="width: 150px">Title</td>
+				<td style="width: 50px">Year</td>
+				<td style="width: 100px">Price</td><br />
+				<td style="width: 50px">Pieces</td><br />
+			<div class="table" style="height: 40px" *ngFor="let dvd of DVD; let i = index">
+				<td style="width: 150px">{{dvd.title}}</td>
+				<td style="width: 50px">{{dvd.year}}</td>
+				<td style="width: 100px" >{{dvd.price}}</td>
+				<td style="width: 50px">{{dvd.pieces}}</td>
+				<td><button (click)="loadEditDVD(dvd)"><img src="pencil.png"/></button></td>
+				<td><button (click)="deleteDVD(dvd, i)"><img src="cross.png"/></button></td><br />
+			</div>	
+		<br />
+		<br />
+		<button (click)="loadAddDVD()" class="ok">Add a new DVD!</button><br />
+		<br />
+		<br />
+		<br />
+		<button (click)="logout()">Logout</button>
+		</div>	
+    </tr>
+</table>
